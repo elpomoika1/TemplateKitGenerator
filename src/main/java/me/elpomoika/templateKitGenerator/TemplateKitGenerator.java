@@ -6,6 +6,7 @@ import eu.okaeri.configs.serdes.okaeri.SerdesOkaeriBukkit;
 import eu.okaeri.configs.yaml.bukkit.YamlBukkitConfigurer;
 import me.elpomoika.templateKitGenerator.command.GeneratorCommand;
 import me.elpomoika.templateKitGenerator.config.YamlConfig;
+import me.elpomoika.templateKitGenerator.service.ItemService;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.io.File;
@@ -18,9 +19,10 @@ public final class TemplateKitGenerator extends JavaPlugin {
     @Override
     public void onEnable() {
         initConfigs();
+        final ItemService itemService = new ItemService();
 
         this.commandManager = new PaperCommandManager(this);
-        commandManager.registerCommand(new GeneratorCommand(yamlConfig));
+        commandManager.registerCommand(new GeneratorCommand(yamlConfig, itemService));
     }
 
     private void initConfigs() {
