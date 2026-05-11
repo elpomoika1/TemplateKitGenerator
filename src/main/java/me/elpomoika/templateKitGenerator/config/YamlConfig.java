@@ -15,14 +15,14 @@ public class YamlConfig extends OkaeriConfig {
         put(ElementType.HELMET,
                 new ArmorElementData(
                         "{color}Шлем {displayname} {level} Уровня",
-                        List.of("&#{color}Защита {roman_enchant}"),
+                        List.of("{color}Защита {roman_enchant}"),
                         List.of("PROTECTION_ENVIRONMENTAL")
                 )
         );
         put(ElementType.CHESTPLATE,
                 new ArmorElementData(
                         "{color}Нагрудник {displayname} {level} Уровня",
-                        List.of("&#{color}Защита {roman_enchant}"),
+                        List.of("{color}Защита {roman_enchant}"),
                         List.of("PROTECTION_ENVIRONMENTAL")
                 )
         );

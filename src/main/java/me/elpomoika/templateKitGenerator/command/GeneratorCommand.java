@@ -14,6 +14,7 @@ import net.kyori.adventure.text.Component;
 import org.bukkit.NamespacedKey;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
+import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
@@ -49,10 +50,12 @@ public class GeneratorCommand extends BaseCommand {
         ArmorElementData elementData = yamlConfig.getElementData(rawElementType);
 
         List<Component> lore = LoreBuilder.build(elementData.getLore(), null, placeholder);
-        Component displayname = FormatUtil.parseAndFormatMessage(null, rawDisplayname, placeholder);
+        Component displayname = FormatUtil.parseAndFormatMessage(null, elementData.getDisplayname(), placeholder);
 
         meta.displayName(displayname);
         meta.lore(lore);
+        meta.addItemFlags(ItemFlag.HIDE_ITEM_SPECIFICS, ItemFlag.HIDE_ATTRIBUTES);
+
         for (String rawEnchantment : elementData.getEnchants()) {
             Enchantment enchantment = Enchantment.getByKey(NamespacedKey.fromString(rawEnchantment));
 
