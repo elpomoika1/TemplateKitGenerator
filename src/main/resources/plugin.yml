@@ -1,0 +1,8 @@
+name: TemplateKitGenerator
+version: '${version}'
+
+main: me.elpomoika.templateKitGenerator.TemplateKitGenerator
+api-version: '1.19'
+load: POSTWORLD
+
+authors: [ elpomoika ]
